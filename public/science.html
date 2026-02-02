@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Background - Evolutionary Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; color: #2c3e50; }
+        .content-section { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        h2 { color: #2980b9; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-bottom: 20px; }
+        .back-btn { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <a href="index.html" class="btn btn-outline-secondary back-btn">← Back to Simulator</a>
+    
+    <h1 class="text-center mb-5 display-4">🧬 Scientific Background</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            
+            <!-- Evolution Concept -->
+            <div class="content-section">
+                <h2>What Does Evolution Mean Here?</h2>
+                <p class="lead">
+                    In this simulator, evolution is modeled as a gradual change in the distribution of genetic traits within a population.
+                </p>
+                <p>
+                    Individuals with traits closer to the environmental optimum are more likely to survive and reproduce. Over generations, the population "shifts" towards this optimal state, demonstrating adaptation.
+                </p>
+            </div>
+
+            <!-- Fitness Concept -->
+            <div class="content-section">
+                <h2>Fitness: Not Strength, But Fit</h2>
+                <p>
+                    Fitness represents how well an individual is adapted to its environment. It is not about physical strength, but about how close an individual's genetic trait is to the environment's requirement.
+                </p>
+                <p>
+                    Higher fitness increases the probability of survival and reproduction. However, fitness is relative; as the environment changes (or if the optimum shifts), what was once "fit" may no longer be sufficient.
+                </p>
+            </div>
+
+            <!-- Mutation Concept -->
+            <div class="content-section">
+                <h2>Mutation: The Engine of Diversity</h2>
+                <p>
+                    Mutation introduces random variation into genetic traits. Without mutation, evolution would stagnate because the population would simply consist of clones of the initial ancestors.
+                </p>
+                <p>
+                    Small mutations allow the population to "explore" nearby trait values, gradually climbing the hill of fitness. Large mutations are riskier but can sometimes lead to breakthroughs.
+                </p>
+            </div>
+
+            <!-- Population Dynamics -->
+            <div class="content-section">
+                <h2>Population Dynamics</h2>
+                <p>
+                    The environment has limited resources (Carrying Capacity). As population size increases, competition intensifies.
+                </p>
+                <p>
+                    This creates a balance between growth (reproduction) and death (competition), preventing unlimited population expansion. This is why you see the population curve flatten out over time.
+                </p>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="math.html" class="btn btn-primary btn-lg">View Mathematical Model 👉</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
