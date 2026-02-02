@@ -1,9 +1,20 @@
 # 🧬 Evolutionary Population Dynamics Simulator
 
-## Overview
-This project is an **API-first backend product** that simulates the evolution of a population under environmental pressures. It combines **Evolutionary Biology** (Natural Selection, Mutation) with **Population Dynamics** (Logistic Growth, Carrying Capacity).
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-green)
 
-The simulation is scientifically grounded, using mathematical models to represent biological processes.
+A web-based simulation tool that models the evolution of a population under environmental pressure. It demonstrates core biological concepts such as **Natural Selection**, **Mutation**, **Genetic Drift**, and **Carrying Capacity** using mathematical models.
+
+---
+
+## 🚀 Features
+
+- **Real-time Visualization:** Watch the population evolve generation by generation.
+- **Interactive Controls:** Adjust mutation rates, population size, and environmental harshness on the fly.
+- **Scientific & Math Documentation:** Includes dedicated pages explaining the underlying biology and mathematics.
+- **Dual Charts:**
+  - 📈 **Population Size:** Logistic growth dynamics.
+  - 🧬 **Average Fitness:** Adaptation level of the population.
 
 ---
 
@@ -11,98 +22,86 @@ The simulation is scientifically grounded, using mathematical models to represen
 
 ### 1. The Individual (Genotype)
 Each individual is represented by a single continuous trait $x$ (e.g., body size, resistance).
+
 - **Genotype:** A float value.
 - **Mutation:** Modeled as a stochastic process using a Normal Distribution.
-  $$ x_{new} = x + \mathcal{N}(0, \sigma_m) $$
+
+$$
+x_{new} = x + \mathcal{N}(0, \sigma_m)
+$$
 
 ### 2. Fitness Function (Natural Selection)
-Fitness determines an individual's probability of survival and reproduction. We use a **Gaussian Function** (Bell Curve) centered around an optimal environmental value ($x_{opt}$).
-$$ f(x) = e^{-\frac{(x - x_{opt})^2}{2\sigma_{env}^2}} $$
+Fitness determines an individual's probability of survival and reproduction. We use a Gaussian Function (Bell Curve) centered around an optimal environmental value ($x_{opt}$).
+
+$$
+f(x) = e^{-\frac{(x - x_{opt})^2}{2\sigma_{env}^2}}
+$$
+
 - Individuals closer to $x_{opt}$ have higher fitness (max 1.0).
 - $\sigma_{env}$ (Tolerance) determines how harsh the environment is.
 
 ### 3. Population Dynamics (Ecology)
-The population size ($N$) is not static. It follows the **Logistic Growth Model**, constrained by the environment's Carrying Capacity ($K$).
-$$ N_{t+1} = N_t + r N_t \left( 1 - \frac{N_t}{K} \right) $$
+The population size ($N$) is not static. It follows the Logistic Growth Model, constrained by the environment's Carrying Capacity ($K$).
+
+$$
+N_{t+1} = N_t + r N_t \left( 1 - \frac{N_t}{K} \right)
+$$
+
 - If $N < K$, the population grows.
 - If $N > K$, the population shrinks due to competition.
 
 ---
 
-## 🛠 Technical Architecture
-
-### Backend (Node.js + Express)
-- **Engine:** Pure JavaScript implementation of the mathematical models (`src/engine`).
-- **API:** RESTful endpoints to control the simulation state.
-- **State Management:** In-memory storage of the current population and history.
-
-### Frontend (HTML + Chart.js)
-- **Visualization:** Real-time plotting of Population Size and Average Fitness.
-- **Control:** Interface to adjust parameters ($r$, $K$, Mutation Rate) dynamically.
-
----
-
-## 🚀 Getting Started
+## 🛠 Installation & Usage
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm
+- [Node.js](https://nodejs.org/) (v14 or higher)
 
-### Installation
-1. Clone the repository:
+### Steps
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/YusufOztoprak/Evolutionary-Population-Dynamics-Simulator.git
-   ```
-2. Navigate to the project directory:
-   ```bash
    cd Evolutionary-Population-Dynamics-Simulator
    ```
-3. Install dependencies:
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-### Running the Application
-Start the server:
-```bash
-npm start
+3. **Start the server**
+   ```bash
+   npm start
+   ```
+
+4. **Open the simulator**
+   Go to `http://localhost:3000` in your browser.
+
+---
+
+## 📂 Project Structure
+
 ```
-Open your browser and navigate to:
-`http://localhost:3000`
+Evolutionary-Population-Dynamics-Simulator/
+├── src/
+│   ├── engine/          # Simulation logic (Population, Individual)
+│   └── server.js        # Express backend API
+├── public/
+│   ├── index.html       # Main Simulator UI
+│   ├── science.html     # Biological Background Page
+│   ├── math.html        # Mathematical Model Page
+│   └── js/              # Frontend logic (Charts, API calls)
+├── package.json
+└── README.md
+```
 
 ---
 
-## 📡 API Reference
+## 📜 License
 
-### 1. Start Simulation
-Initialize a new population with specific parameters.
-- **Endpoint:** `POST /api/simulation/start`
-- **Body:**
-  ```json
-  {
-    "popSize": 50,
-    "carryingCapacity": 500,
-    "growthRate": 0.8,
-    "optimalValue": 20.0,
-    "mutationRate": 0.2,
-    "mutationSigma": 1.0
-  }
-  ```
-
-### 2. Step Forward
-Advance the simulation by $n$ generations.
-- **Endpoint:** `POST /api/simulation/step`
-- **Body:** `{ "steps": 1 }`
-
-### 3. Get Statistics
-Retrieve the current state of the population.
-- **Endpoint:** `GET /api/simulation/stats`
-
-### 4. Reset
-Clear the current simulation.
-- **Endpoint:** `DELETE /api/simulation/reset`
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Author
-Developed by **YusufOztoprak** as a scientific simulation tool.
+**Developed by Yusuf Oztoprak** 🎓
