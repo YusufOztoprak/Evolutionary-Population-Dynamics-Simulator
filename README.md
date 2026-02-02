@@ -49,8 +49,15 @@ $$ N_{t+1} = N_t + r N_t \left( 1 - \frac{N_t}{K} \right) $$
 - npm
 
 ### Installation
-1. Clone the repository.
-2. Install dependencies:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YusufOztoprak/Evolutionary-Population-Dynamics-Simulator.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Evolutionary-Population-Dynamics-Simulator
+   ```
+3. Install dependencies:
    ```bash
    npm install
    ```
@@ -98,4 +105,4 @@ Clear the current simulation.
 ---
 
 ## 👨‍💻 Author
-Developed as a scientific simulation tool.
+Developed by **YusufOztoprak** as a scientific simulation tool.
